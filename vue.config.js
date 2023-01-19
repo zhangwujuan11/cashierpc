@@ -2,7 +2,7 @@
 
 const { defineConfig } = require('@vue/cli-service')
 module.exports = {
-		publicPath: process.env.NODE_ENV == 'development' ? '/payment/' : '/payment/',
+		publicPath: process.env.NODE_ENV == 'development' ? '/payment_pc/' : '/payment_pc/',
 		devServer: {
 			host: '', //target host
 			port: 8080,

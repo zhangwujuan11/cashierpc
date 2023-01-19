@@ -3,7 +3,7 @@ import {iToken} from '@/utils/home.js'
 
 
 const server = axios.create({
-	baseURL: process.env.VUE_APP_BASE_API,
+	baseURL: 'https://1to2to3.cn/merchant',
 	withCredentials: true,
 	timeout: 8000
 })

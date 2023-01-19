@@ -8,13 +8,23 @@ export function iToken(){
 		url:'https://1to2to3.cn/merchant/mer/anon/auth/validate',
 		method:'POST',
 		data:{
-			"username": JSON.parse(localStorage.getItem('user')).username
+			"username": JSON.parse(localStorage.getItem('user')).username,
+			// "orgId":JSON.parse(localStorage.getItem('userinfo')).orgId
 		}
 		
 		
 	})
 }
 
+
+// 组织id
+export function orginid(data){
+	return request({
+		url:'mer/sysUsers/userOrgs',
+		method:'get',
+		params:{username:data}
+	})
+}
 // 周交易总金额
 export function payAmountWeek(data){
 	return request({

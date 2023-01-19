@@ -48,11 +48,11 @@
 						name: '首页',
 						path: '/home'
 					},
-					{
-						id: 2,
-						name: '审核认证',
-						path: '/home/adminCenter/examine/index'
-					},
+					// {
+					// 	id: 2,
+					// 	name: '审核认证',
+					// 	path: '/home/adminCenter/examine/index'
+					// },
 				],
 				activeColor: '#278DE5'
 			}

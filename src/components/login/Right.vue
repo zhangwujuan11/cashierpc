@@ -29,12 +29,20 @@
 			</div>
 		</el-dialog>
 		
+		
+		<el-dialog title="机构选择" append-to-body :visible.sync="dialogorgin" width="490px">
+			<div class="chen">
+				<el-radio  v-for="(item,index) in orginid" :key="index" v-model="radio" :label="item.belongInfoId">{{item.belongInfoId}}</el-radio>
+				<el-button type="primary" @click="suerorginid">确定</el-button>
+			</div>
+		</el-dialog>
+		
 	</div>
 </template>
 
 <script>
 	import {goLogin} from '@/utils/login.js'
-	import {iToken} from '@/utils/home.js'
+	import {iToken,orginid} from '@/utils/home.js'
 	export default{
 		inject:["reload"],
 		data(){
@@ -60,7 +68,10 @@
 						message: '请输入密码',
 						trigger: 'blur'
 					}]
-				}
+				},
+				dialogorgin:false,
+				orginid:[],
+				radio:''
 			}
 		},
 		created() {
@@ -96,12 +107,16 @@
 								localStorage.setItem('user',JSON.stringify(userinfo))
 								
 								this.$nextTick(()=>{
-									iToken().then(resdata=>{
-										localStorage.setItem('iToken',JSON.stringify(resdata.data.data.iToken))
+									orginid(this.ruleForm.username).then(rress=>{
+										this.dialogorgin=true
+										this.orginid=rress.data.data
 									})
+									// iToken().then(resdata=>{
+									// 	localStorage.setItem('iToken',JSON.stringify(resdata.data.data.iToken))
+									// })
 								})
 								
-								this.reload()
+								// this.reload()
 							}
 						})
 					} else {
@@ -115,6 +130,10 @@
 				localStorage.removeItem('user')
 				localStorage.removeItem('iToken')
 				this.reload()
+			},
+			// 机构选择
+			suerorginid(){
+				
 			}
 		}
 	}
