@@ -70,3 +70,9 @@ export function shanhuinfo(){
 	})
 }
 
+
+// 运营平台用户信息基础表查询
+// export function opreationdatas(data){
+// 	return 
+// }
+

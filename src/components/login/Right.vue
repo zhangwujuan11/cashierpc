@@ -95,11 +95,14 @@
 							if(res.data.code==400){
 								this.$message.error(res.data.message)
 							}else{
-								this.$message.success({
-									message: '登录成功',
-									offset: 100,
-									duration:600
-								})
+								
+								
+								
+								// this.$message.success({
+								// 	message: '登录成功',
+								// 	offset: 100,
+								// 	duration:600
+								// })
 								let userinfo={
 									token:res.data.access_token,
 									username:this.ruleForm.username
